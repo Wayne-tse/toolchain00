@@ -19,8 +19,18 @@ exports.getWeather = function(req, res) {
 	
 
 
+<<<<<<< HEAD
 	//var aurl = OPENWEATHERURL + '&zip=' + zip + ',us';
 	var aurl = OPENWEATHERURL + '&q=' + zip + ',nz';
+=======
+<<<<<<< HEAD
+	var aurl = OPENWEATHERURL + '&zip=' + zip + ',us';
+	//var aurl = OPENWEATHERURL + '&q=' + city + 'nz';
+=======
+	//var aurl = OPENWEATHERURL + '&zip=' + zip + ',us';
+	//var aurl = OPENWEATHERURL + '&q=' + zip + 'nz';
+>>>>>>> parent of d0e3260... test changes
+>>>>>>> d0e3260eb5bc0256235e04e809dd4b0f9ae59882
 	request({
 		method: 'GET',
         url: aurl,
