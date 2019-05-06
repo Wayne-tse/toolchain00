@@ -30,7 +30,7 @@
           	} else {
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
-              assert((pbody.name === 'Wellington') || (pbody.country === 'NZ'), "names does not match request");
+              assert((pbody.name === 'Wellington') || (pbody.country === 'NZ'), "names does not match request" + appURL);
               done();
             }
         });
@@ -54,7 +54,7 @@
         });
     	});
 
-      it('with another valid zip code', function(done) {
+      it('with another valid city', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
             return done();
