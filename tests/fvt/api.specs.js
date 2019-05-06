@@ -23,7 +23,8 @@
         request({
       		method: 'GET',
               //url: appUrl + '/api/v1/getWeather?zip=78613'
-          		url: appUrl + '&q=Wellington,nz'
+          		//url: appUrl + '&q=Wellington,nz'
+          		url: appUrl + '/api/v1/getWeather?q=Wellington'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
