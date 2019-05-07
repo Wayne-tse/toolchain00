@@ -70,8 +70,9 @@ exports.getWeather2 = function(req, res) {
 };
 router.get('/getWeather2', exports.getWeather2);
 
+
 exports.getWeatherCity = function(req, res) {
-	var city = req.query.zip;
+	var city = req.query.city;
 	if( (city === null) || (typeof(city) === 'undefined') ) {
 		return res.status(400).send('city missing');
 	}
