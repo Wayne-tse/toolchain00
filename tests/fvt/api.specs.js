@@ -22,13 +22,7 @@
         }
         request({
       		method: 'GET',
-
-              //url: appUrl + '/api/v1/getWeather?zip=78613'
-          		//url: appUrl + '&q=Wellington,nz'
-          		//url: appUrl + '/api/v1/getWeather?q=Wellington'
-              //url: appUrl + '/api/v1/getWeather?zip=78613'
               url: appUrl + '/api/v1/getWeather?zip=78613'
-          		//url: appUrl + '&q=Wellington,nz'
 				
           }, function(err, resp, body) {
           	assert.fail('APPURL:' + appUrl);
@@ -37,7 +31,7 @@
           	} else {
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
-              //assert((pbody.name === 'Wellington') || (pbody.country === 'NZ'), "names does not match request");
+      
               assert((pbody.city === 'Anderson Mill') || (pbody.city === 'Round Rock'), "City name does not match");
               done();
             }
@@ -77,7 +71,6 @@
           	} else {
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
-              //assert(pbody.city === 'Hamilton', "City name does not match");
                assert(pbody.city === 'Round Rock', "City name does not match");
               done();
             }
