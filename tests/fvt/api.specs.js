@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-	assert.fail(appUrl);
+	//assert.fail(appUrl);
     describe('Get Weather', function() {
     	
     	it('with valid zip', function(done) {
@@ -27,8 +27,7 @@
           		//url: appUrl + '&q=Wellington,nz'
           		//url: appUrl + '/api/v1/getWeather?q=Wellington'
               //url: appUrl + '/api/v1/getWeather?zip=78613'
-				url: appUrl + '/api/v1/getWeather?q=Round Rock'
-              //url: appUrl + '/api/v1/getWeather?zip=78613'
+              url: appUrl + '/api/v1/getWeather?zip=78613'
           		//url: appUrl + '&q=Wellington,nz'
 				
           }, function(err, resp, body) {
