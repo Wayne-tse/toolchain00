@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-	assert.fail(appURL)
+	assert.fail(appUrl);
     describe('Get Weather', function() {
     	
     	it('with valid zip', function(done) {
