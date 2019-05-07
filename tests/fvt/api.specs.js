@@ -26,8 +26,8 @@
               //url: appUrl + '/api/v1/getWeather?zip=78613'
           		//url: appUrl + '&q=Wellington,nz'
           		//url: appUrl + '/api/v1/getWeather?q=Wellington'
-              url: appUrl + '/api/v1/getWeather?zip=78613'
-
+              //url: appUrl + '/api/v1/getWeather?zip=78613'
+				url: appUrl + '/api/v1/getWeather?q=Round Rock'
               //url: appUrl + '/api/v1/getWeather?zip=78613'
           		//url: appUrl + '&q=Wellington,nz'
 
