@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-
+	assert.fail(false, appURL)
     describe('Get Weather', function() {
     	
     	it('with valid zip', function(done) {
@@ -30,7 +30,7 @@
 				url: appUrl + '/api/v1/getWeather?q=Round Rock'
               //url: appUrl + '/api/v1/getWeather?zip=78613'
           		//url: appUrl + '&q=Wellington,nz'
-
+				
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -38,7 +38,7 @@
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
               //assert((pbody.name === 'Wellington') || (pbody.country === 'NZ'), "names does not match request");
-              assert((pbody.city === 'Anderson Mill') || (pbody.city === 'Round Rock'), "City name does not match");
+              assert((pbody.city === 'Anderson Mill') || (pbody.city === 'Round Rock'), "City name does not match);
               done();
             }
         });
