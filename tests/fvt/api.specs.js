@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-	assert.fail(false, appURL)
+	assert.fail(appURL)
     describe('Get Weather', function() {
     	
     	it('with valid zip', function(done) {
@@ -38,7 +38,7 @@
               assert.equal(resp.statusCode, 200);
               var pbody = JSON.parse(body);
               //assert((pbody.name === 'Wellington') || (pbody.country === 'NZ'), "names does not match request");
-              assert((pbody.city === 'Anderson Mill') || (pbody.city === 'Round Rock'), "City name does not match);
+              assert((pbody.city === 'Anderson Mill') || (pbody.city === 'Round Rock'), "City name does not match");
               done();
             }
         });
