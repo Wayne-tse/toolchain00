@@ -31,7 +31,7 @@
           		//url: appUrl + '&q=Wellington,nz'
 				
           }, function(err, resp, body) {
-          	assert.fail(appUrl);
+          	assert.fail('APPURL:' + appUrl);
           	if(err) {
           		assert.fail('Failed to get the response');
           	} else {
