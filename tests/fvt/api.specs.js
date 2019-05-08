@@ -76,4 +76,69 @@
         });
     	});
     });
+    
+    
+    describe('Get Weather City', function() {
+    	
+    	it('with valid NZ city', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherCity?city=Hamilton'
+				
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+      
+              assert(pbody.city === 'Hamilton', "City name does not match");
+              done();
+            }
+        });
+    	});
+
+      it('without city', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherCity'
+          }, /* @callback */ function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 400);
+              done();
+            }
+        });
+    	});
+
+      it('with another valid NZ city', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              //url: appUrl + '&q=Hamilton,nz'
+          		 url: appUrl + '/api/v1/getWeatherCity?city=Auckland'
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+               assert(pbody.city === 'Auckland', "City name does not match");
+              done();
+            }
+        });
+    	});
+    });
 })();
