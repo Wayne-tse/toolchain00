@@ -25,7 +25,6 @@
               url: appUrl + '/api/v1/getWeather?zip=78613'
 				
           }, function(err, resp, body) {
-          	assert.fail('APPURL:' + appUrl);
           	if(err) {
           		assert.fail('Failed to get the response');
           	} else {
