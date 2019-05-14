@@ -21,7 +21,7 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap"
+	var src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap";
     $scope.somemessage = "Some weather";
     $scope.zip1Weather = "";
 
