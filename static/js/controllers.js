@@ -1,14 +1,7 @@
 
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
-var map;
-function initMap() {
-	console.log("initMAP");
-map = new google.maps.Map(document.getElementById('map'), {center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-});
 
-}
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -21,7 +14,6 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
-	var src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap";
     $scope.somemessage = "Some weather";
     $scope.zip1Weather = "";
 
