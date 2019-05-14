@@ -3,9 +3,11 @@ var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
 var map;
 function initMap() {
+	console.log("initMAP");
 map = new google.maps.Map(document.getElementById('map'), {center: {lat: -34.397, lng: 150.644},
     zoom: 8
 });
+
 }
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
