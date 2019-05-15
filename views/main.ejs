@@ -22,6 +22,15 @@
             angular.bootstrap(document, ['ConsoleModule']);
         });
     </script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWiaUfLNP1lTw2XJ7Z2fxCA8GtrhvyExM&callback=initMap" async defer></script>-->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWiaUfLNP1lTw2XJ7Z2fxCA8GtrhvyExM&callback=initMap" async defer></script>
 
 </html>
