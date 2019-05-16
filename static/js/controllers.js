@@ -2,7 +2,7 @@
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
 
-
+var markers= [];
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -16,7 +16,7 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 
 
 function putPins(cities,lat,long) {
-
+markers = [];
     for (i = 0; i < cities.length; i++){
     	var point = {lat: lat[i], lng: long[i]};
         addMarker(point, map);       
@@ -27,9 +27,10 @@ function addMarker(location, map) {
   var marker = new google.maps.Marker({
     position: location,
     map: map
-    
   });
+  markers.push(marker);
 }
+
 
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
@@ -39,8 +40,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	var lat = [];
 	var long = [];
 
-	
-	addMarker(locationNz, map);
     $scope.zip = function(which) {
 
         var data = "";
