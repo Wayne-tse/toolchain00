@@ -135,19 +135,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeatherCity?city=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.city1 = response.data.coord.lat + ', ' + response.data.coord.lon;;
+                    $scope.city1 = response.data.coord.lat + ', ' + response.data.coord.lon;
                     $scope.city1Weather = response.data.weather;
                     cities[0] = response.data.city;
                     lat[0] = response.data.coord.lat;
                     long[0] = response.data.coord.lon;
                 } else if(which === 2) {
-                    $scope.city2 = response.data.coord.lat + ', ' + response.data.coord.lon;;
+                    $scope.city2 = response.data.coord.lat + ', ' + response.data.coord.lon;
                     $scope.city2Weather = response.data.weather;
                     cities[1] = response.data.city;
                     lat[1] = response.data.coord.lat;
                     long[1] = response.data.coord.lon;
                 } else if(which === 3) {
-                    $scope.city3 = response.data.coord.lat + ', ' + response.data.coord.lon;;
+                    $scope.city3 = response.data.coord.lat + ', ' + response.data.coord.lon;
                     $scope.city3Weather = response.data.weather;
                     cities[2] = response.data.city;
                     lat[2] = response.data.coord.lat;
