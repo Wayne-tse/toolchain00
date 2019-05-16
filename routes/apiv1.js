@@ -104,7 +104,7 @@ exports.getWeatherCity = function(req, res) {
 };
 router.get('/getWeatherCity', exports.getWeatherCity);
 
-exports.getWeatherLongLat = function(req, res) {
+exports.getWeatherPos = function(req, res) {
     var long = req.query.long;
     var lat = req.query.lat;
     if( (long === null) || (typeof(long) === 'undefined') ) {
@@ -135,5 +135,5 @@ exports.getWeatherLongLat = function(req, res) {
     });
 
 };
-router.get('/getWeatherLongLat', exports.getWeatherCity);
+router.get('/getWeatherPos', exports.getWeatherCity);
 exports.router = router;

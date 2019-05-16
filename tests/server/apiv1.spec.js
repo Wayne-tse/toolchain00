@@ -288,7 +288,7 @@ var requireHelper = require('./requireHelper');
     });
   });
   
-      describe('Get Weather position', function() {
+    describe('Get Weather position', function() {
 
     it('with without position', function() {
       reqMock = {
@@ -297,12 +297,12 @@ var requireHelper = require('./requireHelper');
         }
       };
 
-      apiv1.getWeatherCity(reqMock, resMock);
+      apiv1.getWeatherPos(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
 
-    it('with valid zip code and error from request call', function() {
+    it('with valid position and error from request call', function() {
       reqMock = {
         query: {
 			lat: -37.7870,
@@ -322,7 +322,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with incomplete zip code', function() {
+    it('with incomplete position', function() {
       reqMock = {
         query: {
       lat: -37.7870,
@@ -336,13 +336,13 @@ var requireHelper = require('./requireHelper');
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeatherCity(reqMock, resMock);
+      apiv1.getWeatherPos(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with valid City', function() {
+    it('with valid Position', function() {
       reqMock = {
         query: {
       lat: -37.7870,
@@ -369,7 +369,7 @@ var requireHelper = require('./requireHelper');
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeatherCity(reqMock, resMock);
+      apiv1.getWeatherPos(reqMock, resMock);
 		
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
