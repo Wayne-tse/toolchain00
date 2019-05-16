@@ -207,7 +207,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 		            	lat[i] = response.data.coord.lat;
 		            	long[i] = response.data.coord.lon;
 	            }
-
+				putPins(cities,lat,long);
 
             });
 	});
