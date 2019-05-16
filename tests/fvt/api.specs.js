@@ -204,5 +204,41 @@
             }
         });
     	});
+    	
+    	it('without lat', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherPos?long=174.7633'
+          }, /* @callback */ function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 400);
+              done();
+            }
+        });
+    	});
+    	
+    	it('without long', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherPos?lat=174.7633'
+          }, /* @callback */ function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 400);
+              done();
+            }
+        });
+    	});
     });
 })();
