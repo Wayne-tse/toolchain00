@@ -3,6 +3,10 @@ var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
 var markers= [];
 var map;
+var cities = [];
+var lat = [];
+var long = [];
+
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
@@ -12,10 +16,9 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
         controllerAs: 'wcontroller'
     });
 }]);
-
-
+/*
 function initMap() {
-      	locationNz = {lat: -41.838875, lng: 171.7799};
+      	var locationNz = {lat: -41.838875, lng: 171.7799};
         map = new google.maps.Map(document.getElementById('map'), {
           center: locationNz,
           zoom: 5,
@@ -45,7 +48,40 @@ function initMap() {
 	});
 
        
-}
+}*/
+
+var initMap = function($scope, $http){
+	      var locationNz = {lat: -41.838875, lng: 171.7799};
+          map = new google.maps.Map(document.getElementById('map'), {
+          center: locationNz,
+          zoom: 5,
+          gestureHandling: 'none',
+          zoomControl: false
+     	});
+     	google.maps.event.addListener(map, 'click', function(event) {
+     	var latitude = event.latLng.lat;
+    	var longitude = event.latLng.lon;
+     	$http({
+                method: "GET",
+                url: '/api/v1/getWeatherPos?lat=' + latitude +'&long' + longitude
+            }).then( function(response) {
+            	var city = response.data.city;
+            	if ((city !== null) || typeof city !== 'undefined')
+            	{            	
+            		$scope.city1 = response.data.city;
+	            	$scope.city1Weather = response.data.weather;
+	            	cities[0] = response.data.city;
+	            	lat[0] = response.data.coord.lat;
+	            	long[0] = response.data.coord.lon;
+	            }
+
+
+            });
+        });
+
+	};
+	
+
 
 
 function putPins(cities,lat,long) {
@@ -80,9 +116,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     function($scope, $http, $routeParams, $timeout, $sce) {
     $scope.somemessage = "Some weather";
     $scope.city1Weather = "";
-	var cities = [];
-	var lat = [];
-	var long = [];
 
     $scope.city = function(which) {
 
