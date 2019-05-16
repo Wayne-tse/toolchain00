@@ -135,25 +135,25 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeatherCity?city=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.city1 = response.data.city;
+                    $scope.city1 = response.data.coord.lat + ', ' + response.data.coord.lon;;
                     $scope.city1Weather = response.data.weather;
                     cities[0] = response.data.city;
                     lat[0] = response.data.coord.lat;
                     long[0] = response.data.coord.lon;
                 } else if(which === 2) {
-                    $scope.city2 = response.data.city;
+                    $scope.city2 = response.data.coord.lat + ', ' + response.data.coord.lon;;
                     $scope.city2Weather = response.data.weather;
                     cities[1] = response.data.city;
                     lat[1] = response.data.coord.lat;
                     long[1] = response.data.coord.lon;
                 } else if(which === 3) {
-                    $scope.city3 = response.data.city;
+                    $scope.city3 = response.data.coord.lat + ', ' + response.data.coord.lon;;
                     $scope.city3Weather = response.data.weather;
                     cities[2] = response.data.city;
                     lat[2] = response.data.coord.lat;
                     long[2] = response.data.coord.lon;
                 } else if(which === 4) {
-                    $scope.city4 = response.data.city;
+                    $scope.city4 = response.data.coord.lat + ', ' + response.data.coord.lon;
                     $scope.city4Weather = response.data.weather;
                     cities[3] = response.data.city;
                     lat[3] = response.data.coord.lat;
@@ -178,28 +178,28 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             		if ((cities[0] === null) || typeof cities[0] === 'undefined')
             		{
             			$scope.city1m = response.data.city;
-            			$scope.city1 = response.data.city;
+            			$scope.city1 = response.data.coord.lat + ', ' + response.data.coord.lon;
 	            		$scope.city1Weather = response.data.weather;
 	            		i = 0;
             		}
             		else if ((cities[1] === null) || typeof cities[1] === 'undefined')
             		{
             			$scope.city2m = response.data.city;
-            			$scope.city2 = response.data.city;
+            			$scope.city2 = response.data.coord.lat + ', ' + response.data.coord.lon;
 	            		$scope.city2Weather = response.data.weather;
        					i = 1;
             		}
 					else if ((cities[2] === null) || typeof cities[2] === 'undefined')
             		{
             			$scope.city3m = response.data.city;
-            			$scope.city3 = response.data.city;
+            			$scope.city3 = response.data.coord.lat + ', ' + response.data.coord.lon;
 	            		$scope.city3Weather = response.data.weather;
 						i = 2;
             		}
 					else
             		{
             			$scope.city4m = response.data.city;
-            			$scope.city4 = response.data.city;
+            			$scope.city4 = response.data.coord.lat + ', ' + response.data.coord.lon;
 	            		$scope.city4Weather = response.data.weather;
 
             		}
