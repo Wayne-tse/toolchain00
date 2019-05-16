@@ -90,7 +90,7 @@ exports.getWeatherCity = function(req, res) {
     	} else {
     		if(body.cod === 200) {
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' C';
-    			var response = {city: body.name, weather: weath};
+    			var response = {city: body.name, weather: weath,long: body.coord.lon, lat: body.coord.lat};
     			return res.status(200).send(response);
     		} else {
                 return res.status(400).send({msg:'Failed'});
@@ -100,6 +100,37 @@ exports.getWeatherCity = function(req, res) {
 
 };
 router.get('/getWeatherCity', exports.getWeatherCity);
+/*
+exports.getWeatherLongLat = function(req, res) {
+    var long = req.query.long;
+    var lat = req.query.lat;
+    if( (long === null) || (typeof(long) === 'undefined') ) {
+        return res.status(400).send('long missing');
+    }
+    else if( (lat === null) || (typeof(lat) === 'undefined') ) {
+        return res.status(400).send('lat missing');
+    }
+    // /api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
+    var aurl = OPENWEATHERURL + '&lat=' + lat + '&lon=' + long;
+    request({
+        method: 'GET',
+        url: aurl,
+        json: true
+    }, function(err, resp, body) {
+        if(err) {
+            res.status(400).send('Failed to get the data');
+            //console.error("Failed to send request to openweathermap.org", err);
+        } else {
+            if(body.cod === 200) {
+                var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' C';
+                var response = {city: body.name, weather: weath};
+                return res.status(200).send(response);
+            } else {
+                return res.status(400).send({msg:'Failed'});
+            }
+        }
+    });
 
-
+};
+router.get('/getWeatherLongLat', exports.getWeatherCity);*/
 exports.router = router;
