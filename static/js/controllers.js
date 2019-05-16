@@ -14,18 +14,20 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 }]);
 
 
-/*
-function putPins(cities) {
+
+function putPins(cities,lat,long) {
 
     for (i = 0; i < cities.length; i++){
-        addMarker(cities[i], map);       
+    	var point = {lat: lat[i], lng: long[i]};
+        addMarker(point, map);       
     }
-}*/
+}
 
 function addMarker(location, map) {
   var marker = new google.maps.Marker({
     position: location,
     map: map
+    
   });
 }
 
@@ -34,7 +36,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.zip1Weather = "";
 	var cities = [];
-	var locationNz = {lat: -41.838875, lng: 171.7799};
+	var lat = [];
+	var long = [];
+
+	
 	addMarker(locationNz, map);
     $scope.zip = function(which) {
 
@@ -57,19 +62,28 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
                     cities[0] = response.data.city;
+                    lat[0] = response.data.lat;
+                    long[0] = response.data.long;
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
                     cities[1] = response.data.city;
+                    lat[1] = response.data.lat;
+                    long[1] = response.data.long;
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
                     cities[2] = response.data.city;
+                    lat[2] = response.data.lat;
+                    long[2] = response.data.long;
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                     cities[3] = response.data.city;
+                    lat[3] = response.data.lat;
+                    long[3] = response.data.long;
                 } 
+                putPins(cities,lat,long);
             });
     	//}
 	};
