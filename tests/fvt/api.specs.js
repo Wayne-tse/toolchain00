@@ -152,7 +152,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeatherCity?long=-37.7870&lat=175.2793'
+              url: appUrl + '/api/v1/getWeatherPos?long=-37.7870&lat=175.2793'
 				
           }, function(err, resp, body) {
           	if(err) {
@@ -174,7 +174,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeatherCity'
+              url: appUrl + '/api/v1/getWeatherPos'
           }, /* @callback */ function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -193,7 +193,7 @@
         request({
       		method: 'GET',
               //url: appUrl + '&q=Hamilton,nz'
-          		 url: appUrl + '/api/v1/getWeatherCity?long=-36.8485&lat=174.7633'
+          		 url: appUrl + '/api/v1/getWeatherPos?long=-36.8485&lat=174.7633'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
