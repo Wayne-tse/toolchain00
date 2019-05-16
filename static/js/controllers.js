@@ -182,14 +182,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	            		$scope.city1Weather = response.data.weather;
 	            		i = 0;
             		}
-            		else if ($scope.city2m === "")
+            		else if ((cities[1] === null) || typeof cities[1] === 'undefined')
             		{
             			$scope.city2m = response.data.city;
             			$scope.city2 = response.data.city;
 	            		$scope.city2Weather = response.data.weather;
        					i = 1;
             		}
-					else if ($scope.city3m === "")
+					else if ((cities[2] === null) || typeof cities[2] === 'undefined')
             		{
             			$scope.city3m = response.data.city;
             			$scope.city3 = response.data.city;
