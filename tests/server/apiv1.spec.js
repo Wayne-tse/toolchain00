@@ -213,7 +213,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
 
-    it('with valid zip code and error from request call', function() {
+    it('with valid city and error from request call', function() {
       reqMock = {
         query: {
           //zip: 79968
@@ -301,6 +301,31 @@ var requireHelper = require('./requireHelper');
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
+    
+    it('with without long', function() {
+      reqMock = {
+        query: {
+        	lat: -37.7870
+        }
+      };
+
+      apiv1.getWeatherPos(reqMock, resMock);
+
+      assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
+    });
+
+it('with without lat', function() {
+      reqMock = {
+        query: {
+        	long:  175.2793 
+        }
+      };
+
+      apiv1.getWeatherPos(reqMock, resMock);
+
+      assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
+    });
+
 
     it('with valid position and error from request call', function() {
       reqMock = {
@@ -341,6 +366,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
     });
+    
 
     it('with valid Position', function() {
       reqMock = {
