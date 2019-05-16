@@ -15,7 +15,12 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 
 
 
-
+function addMarker(location, map) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+}
 
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
