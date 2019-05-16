@@ -233,7 +233,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with incomplete zip code', function() {
+    it('with incomplete city', function() {
       reqMock = {
         query: {
           //zip: 79968
@@ -316,7 +316,7 @@ var requireHelper = require('./requireHelper');
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeatherCity(reqMock, resMock);
+      apiv1.getWeatherPos(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
@@ -352,7 +352,7 @@ var requireHelper = require('./requireHelper');
 
       var body = {
         cod: 200,
-        name: 'Hamiton',
+        name: 'Hamilton',
         weather: [
           {
             main: 'warm'
@@ -372,7 +372,7 @@ var requireHelper = require('./requireHelper');
       apiv1.getWeatherPos(reqMock, resMock);
 		
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
-      assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
+      assert(resMock.send.lastCall.args[0].city === 'Hamilton', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are warm and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
