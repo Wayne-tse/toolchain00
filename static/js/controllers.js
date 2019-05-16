@@ -63,25 +63,25 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1Weather = response.data.weather;
                     cities[0] = response.data.city;
                     lat[0] = response.data.coord.lat;
-                    long[0] = response.data.coord.long;
+                    long[0] = response.data.coord.lon;
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
                     cities[1] = response.data.city;
                     lat[1] = response.data.coord.lat;
-                    long[1] = response.data.coord.long;
+                    long[1] = response.data.coord.lon;
                 } else if(which === 3) {
                     $scope.zip3City = response.data.city;
                     $scope.zip3Weather = response.data.weather;
                     cities[2] = response.data.city;
                     lat[2] = response.data.coord.lat;
-                    long[2] = response.data.coord.long;
+                    long[2] = response.data.coord.lon;
                 } else if(which === 4) {
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                     cities[3] = response.data.city;
                     lat[3] = response.data.coord.lat;
-                    long[3] = response.data.coord.long;
+                    long[3] = response.data.coord.lon;
                 } 
                 putPins(cities,lat,long);
             });
