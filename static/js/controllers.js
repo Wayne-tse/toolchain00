@@ -169,16 +169,17 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var longitude = event.latLng.lon;
     $http({
                 method: "GET",
-                url: '/api/v1/getWeatherPos?lat=' + latitude +'&long' + longitude
+                url: '/api/v1/getWeatherPos?lat=' + latitude +'&long=' + longitude
             }).then( function(response) {
             	var city = response.data.city;
-            	if ((city != null) || typeof(city) != 'undefined')
+            	if ((city !== null) || typeof city !== 'undefined')
             	{            	
             		$scope.city1 = response.data.city;
 	            	$scope.city1Weather = response.data.weather;
 	            	cities[0] = response.data.city;
 	            	lat[0] = response.data.coord.lat;
 	            	long[0] = response.data.coord.lon;
+	            	putPins(cities,lat,long);
 	            }
 
 
