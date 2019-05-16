@@ -50,7 +50,7 @@ function initMap() {
        
 }*/
 
-var initMap = function($scope, $http){
+var initMap = function(){
 	      var locationNz = {lat: -41.838875, lng: 171.7799};
           map = new google.maps.Map(document.getElementById('map'), {
           center: locationNz,
@@ -58,7 +58,7 @@ var initMap = function($scope, $http){
           gestureHandling: 'none',
           zoomControl: false
      	});
-     	google.maps.event.addListener(map, 'click', function(event) {
+     	google.maps.event.addListener(map, 'click', function($scope, $http, event) {
      	var latitude = event.latLng.lat;
     	var longitude = event.latLng.lon;
      	$http({
