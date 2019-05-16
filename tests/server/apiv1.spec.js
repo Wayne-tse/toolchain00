@@ -201,7 +201,7 @@ var requireHelper = require('./requireHelper');
   */
     describe('Get Weather city', function() {
 
-    it('with without city code', function() {
+    it('with without city', function() {
       reqMock = {
         query: {
 
