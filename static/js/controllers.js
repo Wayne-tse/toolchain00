@@ -7,7 +7,7 @@ var map;
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
     function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
     $routeProvider.when('/', {
-        templateUrl: '/partials/Byzip.html',
+        templateUrl: '/partials/Bycity.html',
         controller: 'wcontroller',
         controllerAs: 'wcontroller'
     });
@@ -64,22 +64,22 @@ function setMapMarkers(map) {
 ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$timeout', '$sce',
     function($scope, $http, $routeParams, $timeout, $sce) {
     $scope.somemessage = "Some weather";
-    $scope.zip1Weather = "";
+    $scope.city1Weather = "";
 	var cities = [];
 	var lat = [];
 	var long = [];
 
-    $scope.zip = function(which) {
+    $scope.city = function(which) {
 
         var data = "";
         if(which === 1) {
-            data = $scope.zip1m;
+            data = $scope.city1m;
         } else if(which === 2) {
-            data = $scope.zip2m;
+            data = $scope.city2m;
         } else if(which === 3) {
-            data = $scope.zip3m;
+            data = $scope.city3m;
         } else if(which === 4) {
-            data = $scope.zip4m;
+            data = $scope.city4m;
         } 
 
         $http({
@@ -87,26 +87,26 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeatherCity?city=' + data
             }).then( function(response) {
                 if(which === 1) {
-                    $scope.zip1City = response.data.city;
-                    $scope.zip1Weather = response.data.weather;
+                    $scope.city1 = response.data.city;
+                    $scope.city1Weather = response.data.weather;
                     cities[0] = response.data.city;
                     lat[0] = response.data.coord.lat;
                     long[0] = response.data.coord.lon;
                 } else if(which === 2) {
-                    $scope.zip2City = response.data.city;
-                    $scope.zip2Weather = response.data.weather;
+                    $scope.city2 = response.data.city;
+                    $scope.city2Weather = response.data.weather;
                     cities[1] = response.data.city;
                     lat[1] = response.data.coord.lat;
                     long[1] = response.data.coord.lon;
                 } else if(which === 3) {
-                    $scope.zip3City = response.data.city;
-                    $scope.zip3Weather = response.data.weather;
+                    $scope.city3 = response.data.city;
+                    $scope.city3Weather = response.data.weather;
                     cities[2] = response.data.city;
                     lat[2] = response.data.coord.lat;
                     long[2] = response.data.coord.lon;
                 } else if(which === 4) {
-                    $scope.zip4City = response.data.city;
-                    $scope.zip4Weather = response.data.weather;
+                    $scope.city4 = response.data.city;
+                    $scope.city4Weather = response.data.weather;
                     cities[3] = response.data.city;
                     lat[3] = response.data.coord.lat;
                     long[3] = response.data.coord.lon;
