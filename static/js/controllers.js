@@ -165,8 +165,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 	};
 	
 	google.maps.event.addListener(map, 'click', function(event) {
-    var latitude = event.latLng.lat;
-    var longitude = event.latLng.lng;
+    var latitude = event.latLng.lat();
+    var longitude = event.latLng.lng();
     $http({
                 method: "GET",
                 url: '/api/v1/getWeatherPos?lat=' + latitude +'&long=' + longitude
