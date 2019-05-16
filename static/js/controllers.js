@@ -24,6 +24,7 @@ function initMap() {
      	});
         
     google.maps.event.addListener(map, 'click', function(event) {
+    console.log(event.latLng);	
     //addMarker(event.latLng, map);
 	});
 
