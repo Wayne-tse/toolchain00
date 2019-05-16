@@ -142,4 +142,68 @@
         });
     	});
     });
+    
+    describe('Get Weather Position', function() {
+    	
+    	it('with valid position', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherCity?long=-37.7870&lat=175.2793'
+				
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+      
+              assert(pbody.city === 'Hamilton', "City name does not match");
+              done();
+            }
+        });
+    	});
+
+      it('without position', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeatherCity'
+          }, /* @callback */ function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 400);
+              done();
+            }
+        });
+    	});
+
+      it('with another valid position', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              //url: appUrl + '&q=Hamilton,nz'
+          		 url: appUrl + '/api/v1/getWeatherCity?long=-36.8485&lat=174.7633'
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+               assert(pbody.city === 'Auckland', "City name does not match");
+              done();
+            }
+        });
+    	});
+    });
 })();
