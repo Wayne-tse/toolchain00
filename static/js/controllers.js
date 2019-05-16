@@ -33,6 +33,7 @@ function initMap() {
 
 function putPins(cities,lat,long) {
 markers = [];
+setMapMarkers(null);//dereferences markers
     for (i = 0; i < cities.length; i++){
     	var point = {lat: lat[i], lng: long[i]};
         addMarker(point, map);       
