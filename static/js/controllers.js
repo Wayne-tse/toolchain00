@@ -174,30 +174,38 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             	var city = response.data.city;
             	if ((city !== null) || typeof city !== 'undefined')
             	{
-            		if ($scope.city1m === "")
+            		var i = 3;
+            		if ((cities[0] === "") || (cities[0] === null))
             		{
             			$scope.city1m = response.data.city;
+            			$scope.city1 = response.data.city;
+	            		$scope.city1Weather = response.data.weather;
+	            		i = 0;
             		}
             		else if ($scope.city2m === "")
             		{
             			$scope.city2m = response.data.city;
+            			$scope.city2 = response.data.city;
+	            		$scope.city2Weather = response.data.weather;
+       					i = 1;
             		}
 					else if ($scope.city3m === "")
             		{
             			$scope.city3m = response.data.city;
+            			$scope.city3 = response.data.city;
+	            		$scope.city3Weather = response.data.weather;
+						i = 2;
             		}
 					else
             		{
             			$scope.city4m = response.data.city;
-            		}
+            			$scope.city4 = response.data.city;
+	            		$scope.city4Weather = response.data.weather;
 
-            		/*
-            		$scope.city1 = response.data.city;
-	            	$scope.city1Weather = response.data.weather;
-	            	cities[0] = response.data.city;
-	            	lat[0] = response.data.coord.lat;
-	            	long[0] = response.data.coord.lon;
-	            	putPins(cities,lat,long);*/
+            		}
+            		    cities[i] = response.data.city;
+		            	lat[i] = response.data.coord.lat;
+		            	long[i] = response.data.coord.lon;
 	            }
 
 
