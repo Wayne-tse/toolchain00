@@ -14,6 +14,13 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
 }]);
 
 
+/*
+function putPins(cities) {
+
+    for (i = 0; i < cities.length; i++){
+        addMarker(cities[i], map);       
+    }
+}*/
 
 function addMarker(location, map) {
   var marker = new google.maps.Marker({
