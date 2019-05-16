@@ -305,8 +305,8 @@ var requireHelper = require('./requireHelper');
     it('with valid zip code and error from request call', function() {
       reqMock = {
         query: {
-			lat: -37.7870
-      long:  175.2793     
+			lat: -37.7870,
+      		long:  175.2793     
         }
       };
 
@@ -325,7 +325,7 @@ var requireHelper = require('./requireHelper');
     it('with incomplete zip code', function() {
       reqMock = {
         query: {
-      lat: -37.7870
+      lat: -37.7870,
       long:  175.2793   
         }
       };
@@ -345,7 +345,7 @@ var requireHelper = require('./requireHelper');
     it('with valid City', function() {
       reqMock = {
         query: {
-      lat: -37.7870
+      lat: -37.7870,
       long:  175.2793   
         }
       };
