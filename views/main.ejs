@@ -12,11 +12,12 @@
         <script>
       var map;
       function initMap() {
-      	console.log("hi");
+      	locationNz = {lat: 40.9006, lng: 174.8860};
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
+          center: locationNz,
           zoom: 13,
-          gestureHandling: 'cooperative'
+          gestureHandling: 'none',
+          zoomControl: false
         });
       }
       function addMarker(location) {
