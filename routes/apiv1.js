@@ -90,8 +90,8 @@ exports.getWeatherCity = function(req, res) {
     	} else {
     		if(body.cod === 200) {
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' C';
-    			var longdata = body.lon;
-    			var latdata = body.lat;
+    			var longdata = body.coord.lon;
+    			var latdata = body.coord.lat;
     			var response = {city: body.name, weather: weath, long: longdata, lat: latdata};
     			return res.status(200).send(response);
     		} else {
