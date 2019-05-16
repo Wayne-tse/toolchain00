@@ -175,7 +175,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             	if ((city !== null) || typeof city !== 'undefined')
             	{
             		var i = 3;
-            		if ((cities[0] === "") || (cities[0] === null))
+            		if ((cities[0] === null) || typeof cities[0] === 'undefined')
             		{
             			$scope.city1m = response.data.city;
             			$scope.city1 = response.data.city;
