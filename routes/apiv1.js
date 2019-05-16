@@ -90,9 +90,9 @@ exports.getWeatherCity = function(req, res) {
     	} else {
     		if(body.cod === 200) {
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' C';
-    			var longdata = resp.coord["lon"];
-    			var latdata = resp.coord["lat"];
-    			var response = {city: body.name, weather: weath, long: longdata, lat: latdata};
+    			//var longdata = resp.coord["lon"];
+    			//var latdata = resp.coord["lat"];
+    			var response = {city: body.name, weather: weath, coord: body.coord};//long: longdata, lat: latdata};
     			return res.status(200).send(response);
     		} else {
                 return res.status(400).send({msg:'Failed'});
