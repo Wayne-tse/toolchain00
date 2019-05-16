@@ -88,8 +88,8 @@ function putPins(cities,lat,long) {
 	setMapMarkers(null);//dereferences markers
 markers = [];
 
-    for (i = 0; i < cities.length; i++){
-    	var point = {lat: lat[i], lng: long[i]};
+    for (var i = 0; i < cities.length; i++){
+    	var point = {lat: parseFloat(lat[i]),lng: parseFloat(long[i])};
         addMarker(point, map);       
     }
     
