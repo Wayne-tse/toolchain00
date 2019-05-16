@@ -9,7 +9,7 @@ var request = REQUEST.defaults( {
 });
 
 var OPENWEATHERURL = "http://api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric";//units are now metric
-
+/*
 exports.getWeather = function(req, res) {
 	var zip = req.query.zip;
 	if( (zip === null) || (typeof(zip) === 'undefined') ) {
@@ -70,7 +70,7 @@ exports.getWeather2 = function(req, res) {
 
 };
 router.get('/getWeather2', exports.getWeather2);
-
+*/
 
 exports.getWeatherCity = function(req, res) {
 	var city = req.query.city;

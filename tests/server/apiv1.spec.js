@@ -25,7 +25,7 @@ var requireHelper = require('./requireHelper');
   sinon.spy(resMock, "status");
   sinon.spy(resMock, "send");
 
-
+/*
   describe('Get Weather', function() {
 
     it('with without zip code', function() {
@@ -198,7 +198,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
-  
+  */
     describe('Get Weather city', function() {
 
     it('with without city code', function() {
