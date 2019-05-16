@@ -192,7 +192,6 @@
         }
         request({
       		method: 'GET',
-              //url: appUrl + '&q=Hamilton,nz'
           		 url: appUrl + '/api/v1/getWeatherPos?lat=-36.8485&long=174.7633'
           }, function(err, resp, body) {
           	if(err) {

@@ -135,5 +135,5 @@ exports.getWeatherPos = function(req, res) {
     });
 
 };
-router.get('/getWeatherPos', exports.getWeatherCity);
+router.get('/getWeatherPos', exports.getWeatherPos);
 exports.router = router;
