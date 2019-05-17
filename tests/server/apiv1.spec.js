@@ -272,6 +272,10 @@ var requireHelper = require('./requireHelper');
         main: {
           temp: 78
         }
+        coord: {
+        	lat: -37.7870,
+        	lon: 175.2793 
+        }
       };
 
       var request = function( obj, callback ){
@@ -285,6 +289,7 @@ var requireHelper = require('./requireHelper');
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
+      assert(resMock.send.lastCall.args[0].coord === 'lon: 175.2793 , lat:-37.7870','Unexpected response:' + resMock.send.lastCall.args[0].coord);
     });
   });
   
@@ -387,6 +392,10 @@ it('with without lat', function() {
         main: {
           temp: 78
         }
+        coord: {
+        	lat: -37.7870,
+        	lon: 175.2793 
+        }
       };
 
       var request = function( obj, callback ){
@@ -400,6 +409,7 @@ it('with without lat', function() {
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'Hamilton', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
       assert(resMock.send.lastCall.args[0].weather === 'Conditions are warm and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
+      assert(resMock.send.lastCall.args[0].coord === 'lon: 175.2793 , lat:-37.7870','Unexpected response:' + resMock.send.lastCall.args[0].coord);
     });
   });
   
