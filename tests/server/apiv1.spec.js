@@ -271,7 +271,7 @@ var requireHelper = require('./requireHelper');
         ],
         main: {
           temp: 78
-        }
+        },
         coord: {
         	lat: -37.7870,
         	lon: 175.2793 
@@ -391,7 +391,7 @@ it('with without lat', function() {
         ],
         main: {
           temp: 78
-        }
+        },
         coord: {
         	lat: -37.7870,
         	lon: 175.2793 
