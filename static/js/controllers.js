@@ -16,39 +16,7 @@ ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvide
         controllerAs: 'wcontroller'
     });
 }]);
-/*
-function initMap() {
-      	var locationNz = {lat: -41.838875, lng: 171.7799};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: locationNz,
-          zoom: 5,
-          gestureHandling: 'none',
-          zoomControl: false
-     	});
-        
-   	google.maps.event.addListener(map, 'click', function(event) {
-    var latitude = event.latLng.lat;
-    var longitude = event.latLng.lon;
-    $http({
-                method: "GET",
-                url: '/api/v1/getWeatherPos?lat=' + latitude +'&long' + longitude
-            }).then( function(response) {
-            	var city = response.data.city;
-            	if ((city != null) || typeof(city) != 'undefined')
-            	{            	
-            		$scope.city1 = response.data.city;
-	            	$scope.city1Weather = response.data.weather;
-	            	cities[0] = response.data.city;
-	            	lat[0] = response.data.coord.lat;
-	            	long[0] = response.data.coord.lon;
-	            }
 
-
-            });
-	});
-
-       
-}*/
 
 var initMap = function(){
 	      var locationNz = {lat: -41.838875, lng: 171.7799};
@@ -57,27 +25,7 @@ var initMap = function(){
           zoom: 5,
           gestureHandling: 'none',
           zoomControl: false
-     	});/*
-     	google.maps.event.addListener(map, 'click', function($scope, $http, event) {
-     	var latitude = event.latLng.lat;
-    	var longitude = event.latLng.lon;
-     	$http({
-                method: "GET",
-                url: '/api/v1/getWeatherPos?lat=' + latitude +'&long' + longitude
-            }).then( function(response) {
-            	var city = response.data.city;
-            	if ((city !== null) || typeof city !== 'undefined')
-            	{            	
-            		$scope.city1 = response.data.city;
-	            	$scope.city1Weather = response.data.weather;
-	            	cities[0] = response.data.city;
-	            	lat[0] = response.data.coord.lat;
-	            	long[0] = response.data.coord.lon;
-	            }
-
-
-            });
-        });*/
+     	});
 
 	};
 	
